@@ -1,0 +1,11 @@
+@namespace("example.proto.idl")
+
+protocol Mail {
+    record Message {
+        string to;
+        string from;
+        string body;
+    }
+
+    string send(Message message);
+}
