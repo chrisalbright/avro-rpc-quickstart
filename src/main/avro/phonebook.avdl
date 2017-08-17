@@ -1,0 +1,39 @@
+@namespace("example.proto.phonebook")
+
+protocol Phonebook {
+
+	record Type {
+		string name;
+	}
+
+    record Address {
+		Type type;
+    	string street;
+    	string city;
+    	string state;
+    	string zipCode;
+    }
+
+    record Email {
+		Type type;
+    	string emailAddress;
+    }
+
+    record Phone {
+    	Type type;
+        int prefix;
+        int number;
+    }
+
+    record Person {
+    	long id;
+    	string firstName;
+    	string lastName;
+        union {null, array<Address>} streetAddresses = null;
+        union {null, array<Email>} emailAddresses = null;
+        union {null, array<Phone>} phoneNumbers = null;
+        union {null, bytes} photo = null;
+    }
+
+    array<Person> findByName(string name);
+}

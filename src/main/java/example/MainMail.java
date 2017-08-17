@@ -33,14 +33,14 @@ import java.net.InetSocketAddress;
 /**
  * Start a server, attach a client, and send a message.
  */
-public class Main {
+public class MainMail {
     public static class MailImpl implements Mail {
         // in this simple example just return details of the message
-        public Utf8 send(Message message) {
+        public String send(Message message) {
             System.out.println("Sending message");
-            return new Utf8("Sending message to " + message.getTo().toString()
-                    + " from " + message.getFrom().toString()
-                    + " with body " + message.getBody().toString());
+            return "Sending message to " + message.getTo()
+                    + " from " + message.getFrom()
+                    + " with body " + message.getBody();
         }
     }
 
@@ -69,9 +69,9 @@ public class Main {
 
         // fill in the Message record and send it
         Message message = new Message();
-        message.setTo(new Utf8(args[0]));
-        message.setFrom(new Utf8(args[1]));
-        message.setBody(new Utf8(args[2]));
+        message.setTo(args[0]);
+        message.setFrom(args[1]);
+        message.setBody(args[2]);
         System.out.println("Calling proxy.send with message:  " + message.toString());
         System.out.println("Result: " + proxy.send(message));
 

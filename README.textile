@@ -116,7 +116,7 @@ mvn compile
 h3. Running the Java sample
 
 <code>
-mvn -e exec:java -Dexec.mainClass=example.Main -Dexec.args='avro_user pat Hello_World'
+mvn -e exec:java -Dexec.mainClass=example.MainMail -Dexec.args='avro_user pat Hello_World'
 </code>
 
 h2. Python
