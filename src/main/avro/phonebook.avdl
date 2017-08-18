@@ -35,5 +35,17 @@ protocol Phonebook {
         union {null, bytes} photo = null;
     }
 
+    record Result {
+        string message;
+    }
+
+    error ShitHappensException {
+        string message;
+        @java-class("java.math.BigDecimal") string shit;
+    }
+
     array<Person> findByName(string name);
+    Result savePerson(Person person) throws ShitHappensException;
+
+
 }
