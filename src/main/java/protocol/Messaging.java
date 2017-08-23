@@ -1,5 +1,5 @@
 package protocol;
 
 public interface Messaging {
-    public Message translate(Message message);
+    Message translate(Message message);
 }
